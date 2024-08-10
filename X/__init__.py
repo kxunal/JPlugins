@@ -56,29 +56,34 @@ async def main():
     logging.getLogger("pyrogram.session.auth").setLevel(logging.CRITICAL)
     logging.getLogger("pyrogram.session.session").setLevel(logging.CRITICAL)
 
-    LOGGER = logging.getLogger(__name__)
+    LOGS = logging.getLogger(__name__)
 
-    if (
-        not STRING_SESSION1
-        and not STRING_SESSION2
-        and not STRING_SESSION3
-        and not STRING_SESSION4
-        and not STRING_SESSION5
-    ):
-        LOGGER.warning("STRING SESSION NOT FOUND , SHUTDOWN BOT!")
-        sys.exit()
 
-    if not API_ID:
-        LOGGER.warning("API_ID NOT FOUND, SHUTDOWN BOT")
-        sys.exit()
+def LOGGER(name: str) -> logging.Logger:
+    return logging.getLogger(name)
 
-    if not API_HASH:
-        LOGGER.warning("API_HASH NOT FOUND, SHUTDOWN BOT")
-        sys.exit()
 
-    if not BOT_TOKEN:
-        LOGGER.warning("WARNING: BOT TOKEN NOT FOUND, SHUTDOWN BOT")
-        sys.exit()
+if (
+    not STRING_SESSION1
+    and not STRING_SESSION2
+    and not STRING_SESSION3
+    and not STRING_SESSION4
+    and not STRING_SESSION5
+):
+    LOGGER(__name__).warning("STRING SESSION NOT FOUND , SHUTDOWN BOT!")
+    sys.exit()
+
+if not API_ID:
+    LOGGER(__name__).warning("API_ID NOT FOUND, SHUTDOWN BOT")
+    sys.exit()
+
+if not API_HASH:
+    LOGGER(__name__).warning("API_HASH NOT FOUND, SHUTDOWN BOT")
+    sys.exit()
+
+if not BOT_TOKEN:
+   LOGGER(__name__).warning("WARNING: BOT TOKEN NOT FOUND, SHUTDOWN BOT")
+   sys.exit
 
     if BOTLOG_CHATID:
         BOTLOG_CHATID = BOTLOG_CHATID
