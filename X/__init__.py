@@ -90,7 +90,7 @@ if BOTLOG_CHATID:
 else:
    BOTLOG_CHATID = "me"
 
-LOOP = asyncio.get_event_loop()
+#LOOP = asyncio.get_event_loop()
 
 trl = Translator()
 
