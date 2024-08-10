@@ -56,12 +56,10 @@ async def main():
     logging.getLogger("pyrogram.session.auth").setLevel(logging.CRITICAL)
     logging.getLogger("pyrogram.session.session").setLevel(logging.CRITICAL)
 
-    LOGS = logging.getLogger(__name__)
-
+LOGS = logging.getLogger(__name__)
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
-
 
 if (
     not STRING_SESSION1
@@ -70,7 +68,7 @@ if (
     and not STRING_SESSION4
     and not STRING_SESSION5
 ):
-    LOGGER(__name__).warning("STRING SESSION NOT FOUND , SHUTDOWN BOT!")
+    LOGGER(__name__).warning("STRING SESSION NOT FOUND, SHUTDOWN BOT!")
     sys.exit()
 
 if not API_ID:
@@ -82,13 +80,14 @@ if not API_HASH:
     sys.exit()
 
 if not BOT_TOKEN:
-   LOGGER(__name__).warning("WARNING: BOT TOKEN NOT FOUND, SHUTDOWN BOT")
-   sys.exit
+    LOGGER(__name__).warning("WARNING: BOT TOKEN NOT FOUND, SHUTDOWN BOT")
+    sys.exit()
 
-    if BOTLOG_CHATID:
-        BOTLOG_CHATID = BOTLOG_CHATID
-    else:
-        BOTLOG_CHATID = "me"
+if BOTLOG_CHATID:
+    BOTLOG_CHATID = BOTLOG_CHATID
+else:
+    BOTLOG_CHATID = "me"
+
 
     trl = Translator()
 
